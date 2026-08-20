@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sinaliza Pet — Viu? Sinaliza. Encontrou? Avisa.</title>
+  <meta name="description" content="Rede comunitária de busca por animais perdidos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --black:#0d0d0d;
+      --ink:#151515;
+      --paper:#f7f5f1;
+      --white:#fffdfa;
+      --muted:#686868;
+      --line:#161616;
+      --container:1120px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:var(--paper);
+      font-family:poppins,Arial,sans-serif;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{width:min(var(--container),calc(100% - 48px));margin:auto}
+
+    /* Header */
+    header{
+      height:66px;
+      background:var(--white);
+      display:flex;
+      align-items:center;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      font-weight:900;
+      font-size:16px;
+      letter-spacing:-.04em;
+    }
+    .cat-logo{
+      width:22px;height:22px;display:block;
+    }
+
+    /* Hero */
+    .hero{
+      background:var(--black);
+      color:#fff;
+      min-height:338px;
+      display:flex;
+      align-items:center;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1fr 300px;
+      gap:62px;
+      align-items:center;
+      padding:42px 0;
+    }
+    .eyebrow{
+      margin:0 0 10px;
+      color:#9c9c9c;
+      font-size:9px;
+      line-height:1;
+      letter-spacing:.18em;
+      font-weight:800;
+    }
+    h1{
+      margin:0 0 16px;
+      max-width:520px;
+      font-size:49px;
+      line-height:.91;
+      letter-spacing:-.045em;
+      font-weight:900;
+    }
+    .hero-copy{
+      max-width:590px;
+      color:#d0d0d0;
+      font-size:14px;
+      line-height:1.62;
+      margin:0;
+    }
+    .hero-copy + .hero-copy{margin-top:13px}
+    .photo-card{
+      background:var(--white);
+      padding:17px 17px 15px;
+      color:#111;
+      width:280px;
+      justify-self:end;
+    }
+    .photo-card img{
+      width:100%;
+      aspect-ratio:1/1.16;
+      display:block;
+      object-fit:cover;
+      object-position:center 38%;
+    }
+    .caption{
+      margin:10px 0 0;
+      text-align:center;
+      font-size:11px;
+      font-weight:600;
+    }
+
+    /* About */
+    .about{
+      background:var(--paper);
+      padding:42px 0 38px;
+      border-bottom:1px solid #151515;
+    }
+    .about-inner{max-width:1120px}
+    h2{
+      margin:0 0 18px;
+      font-size:29px;
+      line-height:1.1;
+      letter-spacing:-.035em;
+      font-weight:800;
+    }
+    .about p{
+      margin:0 0 14px;
+      max-width:1030px;
+      font-size:14px;
+      line-height:1.68;
+      color:#313131;
+    }
+    .about p:last-child{margin-bottom:0}
+
+    /* CTA strip */
+    .cta-strip{
+      padding:39px 0;
+      background-color:#f4f0e7;
+      background-image:radial-gradient(#c9c2b6 .7px,transparent .7px);
+      background-size:7px 7px;
+    }
+    .cta{
+      min-height:68px;
+      border:2px solid var(--line);
+      box-shadow:4px 4px 0 #111;
+      background:rgba(255,253,250,.94);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:10px 16px;
+    }
+    .cta strong{
+      font-size:16px;
+      letter-spacing:-.02em;
+    }
+    .button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      height:40px;
+      min-width:115px;
+      padding:0 17px;
+      background:#0d0d0d;
+      color:#fff;
+      font-size:11px;
+      font-weight:700;
+      transition:transform .18s ease,background .18s ease;
+    }
+    .button:hover{transform:translateY(-1px);background:#222}
+
+    /* Footer */
+    footer{
+      background:var(--black);
+      color:#fff;
+      padding:48px 0 50px;
+    }
+    .footer-main{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      gap:38px;
+    }
+    .footer-brand{
+      max-width:520px;
+    }
+    .footer-title{
+      margin:0 0 10px;
+      font-size:18px;
+      font-weight:900;
+      letter-spacing:-.04em;
+    }
+    .footer-brand p{
+      margin:0;
+      color:#e5e5e5;
+      font-size:14px;
+      line-height:1.55;
+    }
+    .footer-description{
+      max-width:430px;
+      margin:12px auto 0 !important;
+      color:#a9a9a9 !important;
+      font-size:12px !important;
+    }
+    .footer-copy{
+      margin-top:17px !important;
+      color:#777 !important;
+      font-size:11px !important;
+    }
+    .footer-social{
+      width:100%;
+      max-width:900px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      border-top:1px solid #292929;
+      padding-top:28px;
+    }
+    .social-item{
+      min-height:55px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:11px;
+      color:#d7d7d7;
+      border-right:1px solid #292929;
+      transition:color .18s ease, transform .18s ease;
+    }
+    .social-item:last-child{border-right:0}
+    .social-item:hover{
+      color:#fff;
+      transform:translateY(-2px);
+    }
+    .social-icon{
+      width:24px;
+      height:24px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex:0 0 24px;
+    }
+    .social-icon svg{
+      width:22px;
+      height:22px;
+    }
+    .social-icon.threads{
+      font-size:27px;
+      line-height:1;
+      font-weight:300;
+    }
+    .social-item span:last-child{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      text-align:left;
+    }
+    .social-item small{
+      color:#777;
+      font-size:9px;
+      line-height:1.2;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:3px;
+    }
+    .social-item strong{
+      color:#ededed;
+      font-size:11px;
+      font-weight:600;
+      white-space:nowrap;
+    }
+
+    @media (max-width:760px){
+      .container{width:min(var(--container),calc(100% - 32px))}
+      header{height:58px}
+      .hero-grid{
+        grid-template-columns:1fr;
+        gap:28px;
+        padding:38px 0;
+      }
+      h1{font-size:39px}
+      .photo-card{justify-self:start;width:min(280px,100%)}
+      .about{padding:35px 0}
+      h2{font-size:23px}
+      .cta{align-items:stretch;flex-direction:column;padding:14px}
+      .button{width:100%}
+      .footer-social{
+        grid-template-columns:1fr;
+        gap:0;
+      }
+      .social-item{
+        border-right:0;
+        border-bottom:1px solid #292929;
+        padding:15px 0;
+      }
+      .social-item:last-child{border-bottom:0}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a class="brand" href="#" aria-label="Sinaliza Pet">
+        SINALIZAPET
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">SOBRE</p>
+          <h1>TUDO COMEÇOU<br>COM O LOGAN</h1>
+          <p class="hero-copy">Antes de existir um sistema, uma marca ou uma ideia de projeto, existia apenas um gatinho preto chamado Logan e uma história que mudou a forma como enxergamos a busca por um animal perdido. Foi a partir dessa história, da dor e da sensação de impotência diante de uma situação em que tudo o que podíamos fazer parecia pouco, que surgiu a vontade de transformar essa experiência em uma ferramenta de ajuda para outras pessoas.</p>
+          <p class="hero-copy">Foi assim que nasceu o Sinaliza Pet.</p>
+        </div>
+
+        <figure class="photo-card">
+          <img src="logan.png" alt="Logan, gatinho preto, ao lado de sua tutora">
+          <figcaption class="caption">Em homenagem ao Logan</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="container about-inner">
+        <h2>Sobre o Sinaliza Pet</h2>
+        <p>O Sinaliza Pet nasceu de uma história que começou com a perda de um companheiro muito especial. No dia 19 de maio de 2025, o Logan, um gatinho preto que fazia parte da nossa família desde março de 2021, desapareceu. Durante sete dias, fizemos o que estava ao nosso alcance para encontrá-lo: procuramos, publicamos nas redes sociais, compartilhamos sua foto, pedimos ajuda e tentamos alcançar o maior número possível de pessoas. No dia 26 de maio, finalmente encontramos o Logan, mas infelizmente já sem vida. Essa experiência deixou não apenas a dor da perda, mas também uma reflexão sobre como poderia ser mais fácil organizar e ampliar uma busca quando um animal desaparece.</p>
+        <p>As informações acabam espalhadas entre redes sociais, grupos de mensagens e publicações individuais, enquanto muitas pessoas podem ter visto o animal sem sequer saber que alguém está procurando por ele. Foi dessa experiência que nasceu o Sinaliza Pet: uma iniciativa criada para transformar essa sensação de impotência em uma ferramenta de ajuda. O projeto busca reunir pessoas em torno de uma mesma causa, criando um espaço onde animais desaparecidos possam ser divulgados, avistamentos possam ser sinalizados e informações possam alcançar quem realmente pode fazer a diferença. O gatinho preto presente na identidade do Sinaliza Pet representa o Logan e carrega consigo a origem de tudo isso.</p>
+        <p>Mais do que um símbolo, ele representa a memória de um animal que foi muito amado e a inspiração para criar algo que possa ajudar outras famílias a terem uma história diferente da nossa. O Sinaliza Pet nasce, portanto, de uma experiência pessoal, mas não pertence apenas a ela. Ele é pensado para todos aqueles que já perderam, encontraram, procuraram ou simplesmente pararam para ajudar um animal. Porque, quando um pet desaparece, cada pessoa que sinaliza, compartilha ou presta atenção pode fazer parte do caminho de volta para casa.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <h3 class="footer-title">SINALIZAPET</h3>
+        <p>Viu? Sinaliza. Encontrou? Avisa.</p>
+        <p class="footer-description">Rede comunitária de divulgação e busca por animais perdidos.</p>
+      </div>
+
+      <div class="footer-social">
+        <a class="social-item" href="https://www.instagram.com/sinalizapet/" aria-label="Instagram">
+          <span class="social-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="17.3" cy="6.8" r="1" fill="currentColor"/></svg>
+          </span>
+          <span><small>Instagram</small><strong>@sinalizapet</strong></span>
+        </a>
+
+        <a class="social-item" href="https://www.facebook.com/SinalizaPet/grid?locale=pt_BR" aria-label="Facebook">
+          <span class="social-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4.5c-.6-.1-1.8-.2-3.2-.2-3.2 0-5.4 1.9-5.4 5.5V13H5v3.8h3.4V23H12v-6.2h3.5L16 13h-4V10.2c0-1.1.3-2.2 2-2.2z" fill="currentColor"/></svg>
+          </span>
+          <span><small>Facebook</small><strong>Sinaliza Pet</strong></span>
+        </a>
+
+        <a class="social-item" href="mailto:sinalizapet@gmail.com" aria-label="E-mail">
+          <span class="social-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
+          </span>
+          <span><small>E-mail</small><strong>sinalizapet@gmail.com</strong></span>
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
